@@ -22,6 +22,9 @@ import { ProductsComponent } from './components/products/products.component';
 import { NofoundComponent } from './nofound/nofound.component';
 import { LoginComponent } from './login/login.component';
 
+//Rutas
+import { APP_ROUTING } from './app.routing';
+
 
 
 
@@ -40,6 +43,7 @@ import { LoginComponent } from './login/login.component';
   ],
   imports: [
     BrowserModule,
+    APP_ROUTING,
     HttpModule,
     FormsModule
   ],
