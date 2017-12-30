@@ -26,6 +26,11 @@ import { LoginComponent } from './login/login.component';
 //Rutas
 import { APP_ROUTING } from './app.routing';
 
+//Dependencias externas
+
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
