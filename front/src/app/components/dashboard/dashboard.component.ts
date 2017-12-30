@@ -7,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  currentDate : Date  = new Date();
+  currentDate :boolean  = true;
+  title : string = "Dashboard";
 
   constructor() { }
 

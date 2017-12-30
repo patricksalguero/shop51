@@ -15,6 +15,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/shared/header/header.component';
 import { NavComponent } from './components/shared/nav/nav.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
+import { TitlepageComponent } from './components/shared/titlepage/titlepage.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ClientsComponent } from './components/clients/clients.component';
 import { ProvidersComponent } from './components/providers/providers.component';
@@ -24,9 +25,6 @@ import { LoginComponent } from './login/login.component';
 
 //Rutas
 import { APP_ROUTING } from './app.routing';
-
-
-
 
 @NgModule({
   declarations: [
@@ -39,7 +37,8 @@ import { APP_ROUTING } from './app.routing';
     ProvidersComponent,
     ProductsComponent,
     NofoundComponent,
-    LoginComponent
+    LoginComponent,
+    TitlepageComponent
   ],
   imports: [
     BrowserModule,
