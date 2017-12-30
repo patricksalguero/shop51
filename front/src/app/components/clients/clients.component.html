@@ -75,6 +75,9 @@
                         <i class="fa fa-sort" aria-hidden="true"></i>
                       </mfDefaultSorter>
                     </th>
+                    <th>
+                      Opciones
+                    </th>
 
                   </tr>
                 </thead>
@@ -84,11 +87,19 @@
                     <td>{{item.email}}</td>
                     <td class="text-center">{{item.age}}</td>
                     <td>{{item.city | uppercase}}</td>
+                    <td>
+                      <a href="" class="btn btn-sm btn-default">
+                        <small><i class="fa fa-pencil"></i></small>
+                      </a>
+                      <a href="" class="btn btn-sm btn-danger">
+                          <small><i class="fa fa-trash"></i></small>
+                        </a>
+                    </td>
                   </tr>
                 </tbody>
                 <tfoot>
                   <tr>
-                    <td colspan="4">
+                    <td colspan="5">
                       <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
                     </td>
                   </tr>
