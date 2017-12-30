@@ -1,2 +1,22 @@
-<app-header></app-header>
-<app-dashboard></app-dashboard>
+<div class="page">
+
+  <app-header></app-header>
+
+  <div class="page-content d-flex align-items-stretch">
+    <!-- Side Navbar -->
+    <nav class="side-navbar">
+      <app-nav></app-nav>
+    </nav>
+
+    <div class="content-inner">
+
+      <!-- Router Outlet -->
+      <app-dashboard></app-dashboard>
+
+      <!-- Footer Page -->
+      <app-footer></app-footer>
+    </div>
+
+  </div>
+
+</div>
