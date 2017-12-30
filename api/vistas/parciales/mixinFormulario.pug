@@ -1,0 +1,8 @@
+mixin formulario()
+	form(action="/servidores", method="post")
+		div.form-group
+			input.form-control(type="text",name="nombre",placeholder="Ingrese el nombre")
+		div.form-group
+			input.form-control(type="text",name="descripcion",placeholder="Ingrese la descripcion")
+		div.form-group
+			button.btn.btn-success(type="submit") Ingresar		

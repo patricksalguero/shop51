@@ -1,0 +1,12 @@
+doctype html
+html
+	head
+		meta(name="charset",content="utf8")
+		meta(name="viewport",content="width=device-width,initial-scale=1,maximum-scale=1")
+		link(href="/js/vendors/bootstrap/bootstrap.min.css",rel="stylesheet")
+		title= locals.titulo
+	body
+		div.container
+			h1= locals.titulo
+			hr
+			block contenido
