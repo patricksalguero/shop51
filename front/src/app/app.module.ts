@@ -19,6 +19,10 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ClientsComponent } from './components/clients/clients.component';
 import { ProvidersComponent } from './components/providers/providers.component';
 import { ProductsComponent } from './components/products/products.component';
+import { NofoundComponent } from './nofound/nofound.component';
+import { LoginComponent } from './login/login.component';
+
+
 
 
 @NgModule({
@@ -30,7 +34,9 @@ import { ProductsComponent } from './components/products/products.component';
     DashboardComponent,
     ClientsComponent,
     ProvidersComponent,
-    ProductsComponent
+    ProductsComponent,
+    NofoundComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
