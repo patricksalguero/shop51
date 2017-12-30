@@ -23,12 +23,15 @@ import { ProductsComponent } from './components/products/products.component';
 import { NofoundComponent } from './nofound/nofound.component';
 import { LoginComponent } from './login/login.component';
 
+//Servicios
+import { TestdataService } from './services/testdata.service';
+
 //Rutas
 import { APP_ROUTING } from './app.routing';
 
 //Dependencias externas
-
-
+import { DataTableModule } from "angular2-datatable";
+import { AddComponent } from './components/clients/add.component';
 
 
 @NgModule({
@@ -43,16 +46,19 @@ import { APP_ROUTING } from './app.routing';
     ProductsComponent,
     NofoundComponent,
     LoginComponent,
-    TitlepageComponent
+    TitlepageComponent,
+    AddComponent
   ],
   imports: [
     BrowserModule,
     APP_ROUTING,
     HttpModule,
-    FormsModule
+    FormsModule,
+    DataTableModule
   ],
   providers: [
-    { provide: LOCALE_ID , useValue: 'es' }
+    { provide: LOCALE_ID , useValue: 'es' },
+    TestdataService
   ],
   bootstrap: [AppComponent]
 })

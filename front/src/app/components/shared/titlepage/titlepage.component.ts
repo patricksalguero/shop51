@@ -9,6 +9,7 @@ export class TitlepageComponent implements OnInit {
 
   @Input('title') title : string  ="";
   @Input('date') date : boolean = false;
+  @Input('back') back : string = "";
 
   currentDate : Date = new Date();
 
