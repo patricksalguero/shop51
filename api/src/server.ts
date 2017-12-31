@@ -37,7 +37,7 @@ app.use(favicon("./public/img/favicon.ico"))
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
 app.use(morgan("dev"))
-app.use(express.static("publico"))
+app.use(express.static("public"))
 app.use(cors({origin: "*"}))
 
 // Rutas
@@ -45,6 +45,7 @@ app.use((req: Request, res: Response, next: NextFunction) => {
 	res.locals.titulo = "Inventario de Servidores"
 	next()
 })
+
 app.use("/", rutasPorDefecto)
 app.use("/servidores", rutasServidores)
 app.use("/usuarios", rutasUsuarios)

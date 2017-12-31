@@ -1,10 +1,10 @@
 {
-  "name": "clase26",
+  "name": "Api",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "ts-node src/servidor",
+    "start": "ts-node src/server",
     "watch": "nodemon",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
