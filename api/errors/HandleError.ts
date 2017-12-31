@@ -15,24 +15,22 @@ const manejadorErrores = {
 	noEncontrado: (req: Request, res: Response, next: NextFunction) => {
 		const error: RespuestaError = new Error("No existe la ruta")
 		error.status = 404
-		next(error)
-		/*
-			res
-				.status(404)
-				.type("text/plain")
-				.send("No existe la ruta")
-		*/
+		res.status(error.status)
+			.send({
+				message: error.message,
+				status: error.status,
+				stack: error
+			})
 	},
 
 	errorGeneral: (error: RespuestaError, req: Request, res: Response, next: NextFunction) => {
 		let resaltado = error.stack.replace(/[a-z_-\d]+.js:\d+:\d+/gi, '<mark>$&</mark>')
 		resaltado = resaltado.replace(/[a-z_-\d]+.ts:\d+:\d+/gi, '<mark>$&</mark>') 
-		res
-			.status(error.status)
-			.render("error", {
+		res.status(error.status)
+			.send({
 				message: error.message,
 				status: error.status,
-				stack: resaltado
+				stack: error
 			})
 	}
 }

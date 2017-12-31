@@ -9,8 +9,8 @@ const listClients = async  ( request : Request , response : Response , next : Ne
 const addClient = async ( request : Request , response : Response , next : NextFunction ) => {
     const body = request.body;
     
-    if( body.name == null &&  body.lastname == null && 
-        body.email == null && body.address == null ){
+    if( body.name == null ||  body.lastname == null || 
+        body.email == null || body.address == null ){
         return response.status(500).json({ message: 'Debe rellenar los campos obligatorios' })
     }
     const client = new Client();

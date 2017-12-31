@@ -6,6 +6,8 @@ import {router as rutasPorDefecto} from '../routes/index';
 import {router as rutasServidores} from '../routes/servers';
 import {router as rutasUsuarios} from '../routes/users';
 import { router  as routesClients } from "../routes/clients";
+import {router as routesProviders } from '../routes/providers';
+
 
 import {conexionMongo} from "../configuration/connection";
 import mongoose = require("mongoose");
@@ -28,11 +30,7 @@ mongoose.Promise = global.Promise
 mongoose.connect(conexionMongo, {
 	useMongoClient: true
 }, error => {
-	if(error) {
-		console.log(error)
-	} else {
-		console.log("conectado a Mongo")
-	}
+	if(!error) console.log("conectado a Mongo")
 })
 
 // Middlewares
@@ -54,6 +52,7 @@ app.use("/servidores", rutasServidores);
 app.use("/usuarios", rutasUsuarios);
 
 app.use("/clients" , routesClients );
+app.use("/providers", routesProviders);
 
 app.use(manejadorErrores.noEncontrado);
 app.use(manejadorErrores.errorGeneral);

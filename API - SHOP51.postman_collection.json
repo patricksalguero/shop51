@@ -1,0 +1,504 @@
+{
+	"id": "480c3052-587e-28e3-7011-25e4bb57d9a6",
+	"name": "API - SHOP51",
+	"description": "",
+	"order": [
+		"b2b90feb-270c-ee36-899d-c9d95411045c",
+		"171536ee-b4f4-18bd-dea1-de1f9a52cb04",
+		"c79c8a8d-38a6-f523-3c0b-be2dc819842b",
+		"cf2fec91-49a2-d326-0d86-6a9b77559a3c",
+		"0a092732-b57f-cf09-9e30-5106d3f11768",
+		"47f4350c-c701-120c-e48f-cb4a98b46ce6",
+		"7d13586f-b534-08b8-dd16-baec3dbd3ecf",
+		"2dce1700-9eb8-abd3-21ee-f625726ae7a2",
+		"0e9ac824-2530-6337-08f3-eea355323ff8",
+		"a69d5fe2-95c5-b042-f733-6dda2c8aedb0",
+		"2c7fc1e2-2055-d492-ace8-68dcf79cbbba",
+		"22472560-aab5-9b2a-db10-d92baab33817"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1514686066012,
+	"owner": "1215872",
+	"public": false,
+	"requests": [
+		{
+			"id": "0a092732-b57f-cf09-9e30-5106d3f11768",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:3000/clients",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "480c3052-587e-28e3-7011-25e4bb57d9a6",
+			"data": null,
+			"dataMode": "params",
+			"name": "Listado de Clientes",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1514693696908,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "0e9ac824-2530-6337-08f3-eea355323ff8",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:3000/providers/",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "480c3052-587e-28e3-7011-25e4bb57d9a6",
+			"data": null,
+			"dataMode": "params",
+			"name": "Listado de Proveedores",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1514738982790,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "171536ee-b4f4-18bd-dea1-de1f9a52cb04",
+			"headers": "Content-Type: application/x-www-form-urlencoded\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/x-www-form-urlencoded",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:3000/usuarios/registro",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "480c3052-587e-28e3-7011-25e4bb57d9a6",
+			"data": [
+				{
+					"key": "correo",
+					"value": "patrick.salguero.avalos@gmail.com",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "contrasena",
+					"value": "softpatrick123",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"name": "Registrar Usuario",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1514686088386,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "22472560-aab5-9b2a-db10-d92baab33817",
+			"headers": "Content-Type: application/x-www-form-urlencoded\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/x-www-form-urlencoded",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:3000/providers/delete",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "DELETE",
+			"collectionId": "480c3052-587e-28e3-7011-25e4bb57d9a6",
+			"data": [
+				{
+					"key": "id",
+					"value": "5a4916884d1b8819c006a095",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"name": "Eliminar Proveedor",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1514742087077,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "2c7fc1e2-2055-d492-ace8-68dcf79cbbba",
+			"headers": "Content-Type: application/x-www-form-urlencoded\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/x-www-form-urlencoded",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:3000/providers/update",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "PUT",
+			"collectionId": "480c3052-587e-28e3-7011-25e4bb57d9a6",
+			"data": [
+				{
+					"key": "id",
+					"value": "5a4916884d1b8819c006a095",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"name": "Actaulizar Proveedor",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1514741179214,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "2dce1700-9eb8-abd3-21ee-f625726ae7a2",
+			"headers": "Content-Type: application/x-www-form-urlencoded\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/x-www-form-urlencoded",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:3000/clients/delete",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "DELETE",
+			"collectionId": "480c3052-587e-28e3-7011-25e4bb57d9a6",
+			"data": [
+				{
+					"key": "id",
+					"value": "5a486a456b39f43da0929c63",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"name": "Eliminar Cliente",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1514696620298,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "47f4350c-c701-120c-e48f-cb4a98b46ce6",
+			"headers": "Content-Type: application/x-www-form-urlencoded\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/x-www-form-urlencoded",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:3000/clients/add",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [
+				{
+					"key": "name",
+					"value": "Paul",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "lastname",
+					"value": "Vigo",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "email",
+					"value": "paulvigo@gmail.com",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "address",
+					"value": "Av La Planicie 342 - Monterrico",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1514696604129,
+			"name": "Agregar Cliente",
+			"description": "",
+			"collectionId": "480c3052-587e-28e3-7011-25e4bb57d9a6",
+			"responses": []
+		},
+		{
+			"id": "7d13586f-b534-08b8-dd16-baec3dbd3ecf",
+			"headers": "Content-Type: application/x-www-form-urlencoded\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/x-www-form-urlencoded",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:3000/clients/update",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "PUT",
+			"collectionId": "480c3052-587e-28e3-7011-25e4bb57d9a6",
+			"data": [
+				{
+					"key": "id",
+					"value": "5a4865d4c7b7914cf0f7c40d",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "name",
+					"value": "Patrick2",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"name": "Actualizar Cliente",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1514695258629,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "a69d5fe2-95c5-b042-f733-6dda2c8aedb0",
+			"headers": "Content-Type: application/x-www-form-urlencoded\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/x-www-form-urlencoded",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:3000/providers/add",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "480c3052-587e-28e3-7011-25e4bb57d9a6",
+			"data": [
+				{
+					"key": "ruc",
+					"value": "20100053455",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "enterprise",
+					"value": "Interbank",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "address",
+					"value": "Calle Cesar Villaran 521",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"name": "Agregar Proveedor",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1514741168741,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "b2b90feb-270c-ee36-899d-c9d95411045c",
+			"headers": "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjVhNDg0NGYzMTg0ODlmM2JhODVmMGRhMiIsImlhdCI6MTUxNDY4NjAxMiwiZXhwIjoxNTE0Njg2MDIyfQ.nLtDQiqE89OfchgPUTl2loDfoxuu9G2PBhWbK0rtN8I\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjVhNDg0NGYzMTg0ODlmM2JhODVmMGRhMiIsImlhdCI6MTUxNDY4NjAxMiwiZXhwIjoxNTE0Njg2MDIyfQ.nLtDQiqE89OfchgPUTl2loDfoxuu9G2PBhWbK0rtN8I",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:3000/usuarios/",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "480c3052-587e-28e3-7011-25e4bb57d9a6",
+			"data": null,
+			"dataMode": "params",
+			"name": "Listado de Usuarios",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1514686079741,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "c79c8a8d-38a6-f523-3c0b-be2dc819842b",
+			"headers": "//Authorization: \nContent-Type: application/x-www-form-urlencoded\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "",
+					"description": "",
+					"enabled": false
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/x-www-form-urlencoded",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:3000/usuarios/nuevo-token",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "480c3052-587e-28e3-7011-25e4bb57d9a6",
+			"data": [
+				{
+					"key": "refreshToken",
+					"value": "JC47wPmLbeytfEjuKccQCyNyPmqLyXIXejzsNOVDRkHZLv6kButW2Uh5MoccuoHabDRewg9jFm6USnFvvLjMbtTs5BCvzfoBJ1zzn5KuzwaIATvF1KrweyWzoh0oiPr0RjQ93lYABCj0tYQg3PPazyMGwAZgAyhfzwkKejUM5thgCqn1K9HXFhZjjtMKZBPHjrSfMvCeMigWEaqzHHADXekCE5tr71TNxN3X2JYfoWmsT1w0ryDkFfNKlqwRRMdv",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"name": "Generar Nuevo Token",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1514686097983,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "cf2fec91-49a2-d326-0d86-6a9b77559a3c",
+			"headers": "Content-Type: application/x-www-form-urlencoded\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/x-www-form-urlencoded",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:3000/usuarios/login",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "480c3052-587e-28e3-7011-25e4bb57d9a6",
+			"data": [
+				{
+					"key": "correo",
+					"value": "patrick.salguero.avalos@gmail.com",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "contrasena",
+					"value": "softpatrick123",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"name": "Login",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1514686104686,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		}
+	]
+}
