@@ -37,4 +37,4 @@ const manejadorErrores = {
 	}
 }
 
-export {manejadorErrores}
+export { manejadorErrores }
