@@ -1,5 +1,5 @@
 import {Request, Response, NextFunction} from "express"
-import Servidor from '../modelos/ServidorModelo'
+import Servidor from '../models/ServerModel'
 
 /*const servidores = [
 	{_id: "1", nombre: "Web", descripcion: "Servidor del Proyecto de Gas Natural"},

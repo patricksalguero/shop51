@@ -1,7 +1,7 @@
 import jwt = require("jwt-simple")
 import moment = require("moment")
 import randToken = require("rand-token")
-import { miClave } from '../../configuraciones/clave'
+import { miClave } from '../../configuration/key'
 
 const refreshTokens = {}
 const tiempoVidaToken = 10

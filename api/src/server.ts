@@ -1,15 +1,15 @@
 // Declaraciones e importaciones
 import express = require("express")
 import {Application, Request, Response, NextFunction } from "express"
-import {router as rutasPorDefecto} from '../rutas/index'
-import {router as rutasServidores} from '../rutas/servidores'
-import {router as rutasUsuarios} from '../rutas/usuarios'
-import {conexionMongo} from "../configuraciones/conexiones"
+import {router as rutasPorDefecto} from '../routes/index'
+import {router as rutasServidores} from '../routes/servers'
+import {router as rutasUsuarios} from '../routes/users'
+import {conexionMongo} from "../configuration/connection"
 import mongoose = require("mongoose")
 import bodyParser = require("body-parser")
 import morgan = require("morgan")
 import favicon = require("serve-favicon")
-import {manejadorErrores} from "../errores/manejadoresErrores"
+import {manejadorErrores} from "../errors/HandleError"
 import cors = require("cors")
 
 require("dotenv").config({path: "./variables.env"})
@@ -19,7 +19,7 @@ require("dotenv").config({path: "./variables.env"})
 const app: Application = express()
 app.set("puerto", process.env.PORT || 4000)
 app.set("view engine", "pug")
-app.set("views", "./vistas")
+app.set("views", "./views")
 
 mongoose.Promise = global.Promise
 mongoose.connect(conexionMongo, {
@@ -33,7 +33,7 @@ mongoose.connect(conexionMongo, {
 })
 
 // Middlewares
-app.use(favicon("./publico/img/favicon.ico"))
+app.use(favicon("./public/img/favicon.ico"))
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
 app.use(morgan("dev"))

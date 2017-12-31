@@ -1,6 +1,6 @@
 import {Request, Response, NextFunction} from "express"
-import Usuario from '../modelos/UsuarioModelo'
-import {crearToken, generarTokenNuevo} from '../servicios/servicioToken'
+import Usuario from '../models/UserModel'
+import {crearToken, generarTokenNuevo} from '../services/jwt'
 
 const controlador = {
 	registro: async (req: Request, res: Response, next: NextFunction) => {

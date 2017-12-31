@@ -1,4 +1,4 @@
-import { decodificarToken } from '../servicios/servicioToken'
+import { decodificarToken } from '../services/jwt'
 import { Request, Response, NextFunction } from "express"
 
 const politica = (req: Request, res: Response, next: NextFunction) => {
