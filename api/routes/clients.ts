@@ -8,9 +8,9 @@ import { politica } from '../api/politcs/AuthPolitic';
 
 const router = express.Router();
 
-router.get("/", politica, manejadorErrores.cacheo( listClients  ));
+router.get("/", politica ,manejadorErrores.cacheo( listClients  ));
 router.post("/add", politica , manejadorErrores.cacheo( addClient ));
 router.put("/update", politica , manejadorErrores.cacheo( updateClient ));
-router.delete("/delete",  politica , manejadorErrores.cacheo( deleteClient ));
+router.delete("/delete" , politica , manejadorErrores.cacheo( deleteClient ));
 
 export { router }

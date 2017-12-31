@@ -6,7 +6,10 @@ const schema = new mongoose.Schema({
     description : String,
     created : Date,
     price : Number,
-    stock : Number,
+    weight : Number,
+    measure: String,
+    image : String,
+    stock : { type: Number , default : 0 },
     isActive : { type: Number , default : 1 }
 })
 

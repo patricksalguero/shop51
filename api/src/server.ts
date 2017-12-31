@@ -5,8 +5,10 @@ import {Application, Request, Response, NextFunction } from "express";
 import {router as rutasPorDefecto} from '../routes/index';
 import {router as rutasServidores} from '../routes/servers';
 import {router as rutasUsuarios} from '../routes/users';
+
 import { router  as routesClients } from "../routes/clients";
-import {router as routesProviders } from '../routes/providers';
+import { router as routesProviders } from '../routes/providers';
+import { router as routerProducts } from '../routes/product';
 
 
 import {conexionMongo} from "../configuration/connection";
@@ -30,7 +32,7 @@ mongoose.Promise = global.Promise
 mongoose.connect(conexionMongo, {
 	useMongoClient: true
 }, error => {
-	if(!error) console.log("conectado a Mongo")
+	if(!error) console.log("MongoDB : Conectado")
 })
 
 // Middlewares
@@ -53,6 +55,8 @@ app.use("/usuarios", rutasUsuarios);
 
 app.use("/clients" , routesClients );
 app.use("/providers", routesProviders);
+app.use("/products", routerProducts);
+
 
 app.use(manejadorErrores.noEncontrado);
 app.use(manejadorErrores.errorGeneral);

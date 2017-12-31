@@ -1,4 +1,3 @@
-
 import { Request , Response , NextFunction } from 'express';
 import Provider from '../models/ProviderModel';
 import moment = require('moment');
@@ -53,22 +52,20 @@ const updateProvider = async(request : Request ,response : Response , next : Nex
     try{
         const providerFind = await Provider.findById( idProvider );
 
-        try{
-            const providerUpdate = await Provider.findByIdAndUpdate( idProvider , body );
-
-            if( providerUpdate != null ){
-                response.status(200).send( providerUpdate );
-            }
-
-        }catch( errUpdate ){
-            response.status(500).send({message: 'No se ha actualizado proveedor' })
-        }
-        
-
         if( null  != providerFind ){
-            return response.status(500).send({message:'Proveedor no existe'});
-        }
+            try{
+                const providerUpdate = await Provider.findByIdAndUpdate( idProvider , body );
     
+                if( providerUpdate != null ){
+                    response.status(200).send( providerUpdate );
+                }
+    
+            }catch( errUpdate ){
+                response.status(500).send({message: 'No se ha actualizado proveedor' })
+            }
+        }else{
+            return response.status(500).send({message:'Proveedor no existe'});
+        }        
 
     }catch( findProvider ){
         return response.status(404).send({message:'Proveedor no existe'});
@@ -95,7 +92,11 @@ const deleteProvider = async (request : Request ,response : Response , next : Ne
 
             if( null != providerDelete ){
                 return response.status(200).send( providerDelete );        
+            }else{
+                return response.status(500).send({message:'Proveedor no existe'});
             }
+        }else{
+            return response.status(500).send({message:'Proveedor no existe'});
         }
 
     }catch( errFind ){

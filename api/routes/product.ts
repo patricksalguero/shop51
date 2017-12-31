@@ -11,7 +11,7 @@ const router = express.Router();
 
 router.get("/", manejadorErrores.cacheo(listProducts));
 router.post("/add", manejadorErrores.cacheo(addProduct));
-router.put("/put", manejadorErrores.cacheo(updateProduct));
+router.put("/update", manejadorErrores.cacheo(updateProduct));
 router.delete("/delete", manejadorErrores.cacheo(deleteProduct));
 
 export { router }

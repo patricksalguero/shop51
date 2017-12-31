@@ -72,12 +72,18 @@ const deleteClient = async ( request : Request , response : Response , next : Ne
     try{
         const clientfind = await Client.findById(idClient);
 
+        if( clientfind == null ){
+            return response.status(404).send({message:'El cliente no existe'});
+        }
+
         try{
             
             const clientDeleted = await Client.findByIdAndRemove( idClient );
 
             if( clientDeleted != null ){
                 return response.status(200).send({message:'Eliminado correctamente', client: clientDeleted });
+            }else{
+                return response.status(404).send({message:'El cliente no existe'});
             }
 
 
