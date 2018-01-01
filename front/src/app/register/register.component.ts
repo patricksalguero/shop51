@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { InputMaterial } from './../util/inputMaterial';
 
 @Component({
   selector: 'app-register',
@@ -10,6 +11,7 @@ export class RegisterComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    InputMaterial.initMaterial();
   }
 
 }
