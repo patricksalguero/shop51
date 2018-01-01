@@ -1,3 +1,40 @@
-<p>
-  login works!
-</p>
+<div class="page login-page">
+  <div class="container d-flex align-items-center">
+    <div class="form-holder has-shadow">
+      <div class="row">
+        <!-- Logo & Information Panel-->
+        <div class="col-lg-6">
+          <div class="info d-flex align-items-center">
+            <div class="content">
+              <div class="logo">
+                <h1>Shop51</h1>
+              </div>
+              <p>Comercio de Proteínas y Suplementos alimenticios.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Form Panel    -->
+        <div class="col-lg-6 bg-white">
+          <div class="form d-flex align-items-center">
+            <div class="content">
+              <form id="login-form" method="post">
+                <div class="form-group">
+                  <input id="login-username" type="text" name="loginUsername" required="" class="input-material">
+                  <label for="login-username" class="label-material">Correo Electrónico</label>
+                </div>
+                <div class="form-group">
+                  <input id="login-password" type="password" name="loginPassword" required="" class="input-material">
+                  <label for="login-password" class="label-material">Contraseña</label>
+                </div><a id="login" href="index.html" class="btn btn-primary">Acceder</a>
+                <!-- This should be submit button but I replaced it with <a> for demo purposes-->
+              </form><a href="#" class="forgot-pass">¿Olvidaste tu contraseña?</a><br><small> ¿No tienes una cuenta? </small><a href="register.html" class="signup">Registrate</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="copyrights text-center">
+    <p>Desarrollador por  <i class="fa fa-github"></i> <a href="https://github.com/patricksalguero/shop51" class="external">  Patrick Salguero</a></p>
+  </div>
+</div>

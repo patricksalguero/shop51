@@ -22,16 +22,18 @@ import { ProvidersComponent } from './components/providers/providers.component';
 import { ProductsComponent } from './components/products/products.component';
 import { NofoundComponent } from './nofound/nofound.component';
 import { LoginComponent } from './login/login.component';
+import { AddComponent } from './components/clients/add.component';
+import { RegisterComponent } from './register/register.component';
 
 //Servicios
 import { TestdataService } from './services/testdata.service';
+import { AuthService } from './services/auth.service';
 
 //Rutas
 import { APP_ROUTING } from './app.routing';
 
 //Dependencias externas
 import { DataTableModule } from "angular2-datatable";
-import { AddComponent } from './components/clients/add.component';
 
 
 @NgModule({
@@ -47,7 +49,8 @@ import { AddComponent } from './components/clients/add.component';
     NofoundComponent,
     LoginComponent,
     TitlepageComponent,
-    AddComponent
+    AddComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +61,8 @@ import { AddComponent } from './components/clients/add.component';
   ],
   providers: [
     { provide: LOCALE_ID , useValue: 'es' },
-    TestdataService
+    TestdataService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })
