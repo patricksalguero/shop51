@@ -28,6 +28,8 @@ import { RegisterComponent } from './register/register.component';
 //Servicios
 import { TestdataService } from './services/testdata.service';
 import { AuthService } from './services/auth.service';
+import { AuthGuard } from './services/guards/auth.guard';
+
 
 //Rutas
 import { APP_ROUTING } from './app.routing';
@@ -62,7 +64,8 @@ import { DataTableModule } from "angular2-datatable";
   providers: [
     { provide: LOCALE_ID , useValue: 'es' },
     TestdataService,
-    AuthService
+    AuthService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

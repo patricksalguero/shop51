@@ -17,6 +17,8 @@
         <div class="col-lg-6 bg-white">
           <div class="form d-flex align-items-center">
             <div class="content">
+              <h2 class="text-primary">Login</h2>
+              <br>
               <form id="login-form" method="post">
                 <div class="form-group">
                   <input id="login-username" type="text" name="loginUsername" required="" class="input-material">
@@ -25,9 +27,14 @@
                 <div class="form-group">
                   <input id="login-password" type="password" name="loginPassword" required="" class="input-material">
                   <label for="login-password" class="label-material">Contraseña</label>
-                </div><a id="login" href="index.html" class="btn btn-primary">Acceder</a>
+                </div>
+                <a id="login" href="index.html" class="btn btn-primary">Acceder</a>
                 <!-- This should be submit button but I replaced it with <a> for demo purposes-->
-              </form><a href="#" class="forgot-pass">¿Olvidaste tu contraseña?</a><br><small> ¿No tienes una cuenta? </small><a href="register.html" class="signup">Registrate</a>
+              </form>
+              <a href="#" class="forgot-pass">¿Olvidaste tu contraseña?</a>
+              <br>
+              <small> ¿No tienes una cuenta? </small>
+              <a (click)="goToRegister()" class="btn btn-link signup">Registrate</a>
             </div>
           </div>
         </div>
@@ -35,6 +42,9 @@
     </div>
   </div>
   <div class="copyrights text-center">
-    <p>Desarrollador por  <i class="fa fa-github"></i> <a href="https://github.com/patricksalguero/shop51" class="external">  Patrick Salguero</a></p>
+    <p>Desarrollador por
+      <i class="fa fa-github"></i>
+      <a href="https://github.com/patricksalguero/shop51" class="external"> Patrick Salguero</a>
+    </p>
   </div>
 </div>

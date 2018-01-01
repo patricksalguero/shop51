@@ -8,11 +8,15 @@ import {
 import { CLIENT_ROUTING } from './components/clients/clients.routing';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { AuthGuard } from './services/guards/auth.guard';
 
 
 const APP_ROUTES: Routes = [
-  { path: 'login' ,        component: LoginComponent },
-  { path: 'register' ,        component: RegisterComponent },
+  //Publicos
+  { path: 'login' ,        component: LoginComponent , canActivate: [AuthGuard] },
+  { path: 'register' ,        component: RegisterComponent  , canActivate : [AuthGuard]},
+  
+  //Privados - Guards de Autentificación
   { path: 'dashboard',     component: DashboardComponent },
   { path: 'products',      component: ProductsComponent },
   { path: 'providers',     component: ProvidersComponent },

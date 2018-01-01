@@ -1,3 +1,60 @@
-<p>
-  register works!
-</p>
+<div class="page login-page">
+  <div class="container d-flex align-items-center">
+    <div class="form-holder has-shadow">
+      <div class="row">
+        <!-- Logo & Information Panel-->
+        <div class="col-lg-6">
+          <div class="info d-flex align-items-center">
+            <div class="content">
+              <div class="logo">
+                <h1>Shop51</h1>
+              </div>
+              <p>Comercio de Proteínas y Suplementos alimenticios.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Form Panel    -->
+        <div class="col-lg-6 bg-white">
+          <div class="form d-flex align-items-center">
+            <div class="content">
+              <h2 class="text-primary">Regístrate</h2>
+              <br>
+              <form id="register-form">
+                <div class="form-group">
+                  <input id="register-name" type="text" name="registerName" required class="input-material">
+                  <label for="register-name" class="label-material">Nombres</label>
+                </div>
+                <div class="form-group">
+                  <input id="register-lastname" type="text" name="registerLastname" required class="input-material">
+                  <label for="register-lastname" class="label-material">Apellidos</label>
+                </div>
+
+                <div class="form-group">
+                  <input id="register-email" type="email" name="registerEmail" required class="input-material">
+                  <label for="register-email" class="label-material">Correo Electrónico </label>
+                </div>
+                <div class="form-group">
+                  <input id="register-passowrd" type="password" name="registerPassword" required class="input-material">
+                  <label for="register-passowrd" class="label-material">Contraseña </label>
+                </div>
+                <div class="form-group terms-conditions">
+                  <input id="license" type="checkbox" class="checkbox-template">
+                  <label for="license">Acepto termino y condiciones.</label>
+                </div>
+                <input id="register" type="submit" value="Registrarse" class="btn btn-primary">
+              </form>
+              <small>¿ Ya eres miembro ? </small>
+              <a routerLink="/login" class="signup">Acceder</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="copyrights text-center">
+    <p>Desarrollador por
+      <i class="fa fa-github"></i>
+      <a href="https://github.com/patricksalguero/shop51" class="external"> Patrick Salguero</a>
+    </p>
+  </div>
+</div>
