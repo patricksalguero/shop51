@@ -68,6 +68,7 @@
                 <div class="form-group terms-conditions">
                   <input 
                     id="license" 
+                    required
                     type="checkbox" 
                     name="accept"
                     [(ngModel)]="accept"
@@ -78,11 +79,15 @@
                     id="register" 
                     type="submit" 
                     value="Registrarse" 
-                    [disabled]="form.invalid && accept"
+                    [disabled]="form.invalid && !accept"
                     class="btn btn-primary">
               </form>
               <small>¿ Ya eres miembro ? </small>
               <a routerLink="/login" class="signup">Acceder</a>
+              <br><br>
+              <div class="alert alert-danger" *ngIf="!loading && message.length > 0" >
+                {{ message }}
+              </div>
             </div>
           </div>
         </div>

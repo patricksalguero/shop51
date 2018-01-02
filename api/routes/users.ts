@@ -7,6 +7,7 @@ import {middlewareAuth} from '../api/politcs/AuthPolitic'
 router.get("/", middlewareAuth, manejadorErrores.cacheo(ctrl.listAll));
 router.post("/register", manejadorErrores.cacheo(ctrl.register));
 router.post("/login", manejadorErrores.cacheo(ctrl.login));
+router.post("/newtoken", ctrl.generateNewTokenUser);
 
 
 export {router}

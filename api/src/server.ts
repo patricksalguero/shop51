@@ -8,7 +8,7 @@ import {router as rutasServidores} from '../routes/servers';
 import { router  as routesClients } from "../routes/clients";
 import { router as routesProviders } from '../routes/providers';
 import { router as routesProducts } from '../routes/product';
-import {router as routesUser} from '../routes/users';
+import { router as routesUser} from '../routes/users';
 
 
 import {conexionMongo} from "../configuration/connection";
@@ -18,6 +18,8 @@ import morgan = require("morgan");
 import favicon = require("serve-favicon");
 import {manejadorErrores} from "../errors/HandleError";
 import cors = require("cors");
+import moment = require('moment');
+
 
 require("dotenv").config({path: "./variables.env"});
 
@@ -64,5 +66,6 @@ app.use(manejadorErrores.errorGeneral);
 
 // Servidor
 app.listen( app.get("port"), ()=> {
+	console.log("Current Date: " + moment().format("h:m:s d-M-YYYY"));
 	console.log(`PORT LISTEN:  ${app.get("port")}`);
 })
