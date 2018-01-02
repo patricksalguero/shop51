@@ -2,6 +2,8 @@ import { Component, OnInit, ViewContainerRef } from '@angular/core';
 import { InputMaterial } from './../util/inputMaterial';
 import { AuthService } from '../services/auth.service';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+
 
 declare var $;
 
@@ -23,13 +25,14 @@ export class RegisterComponent implements OnInit {
   public message : string = "";
 
 
-  constructor( private _authS : AuthService ) {
+  constructor( 
+    private _authS : AuthService ,
+    private _router: Router ) {
   }
 
   ngOnInit() {
     InputMaterial.initMaterial();
-    $("#register-email").focus();
-    this.user.email = "patrick.salguero.avalos@gmail.com";
+    $("#register-name").focus();
   }
 
   registerUser(){
@@ -42,15 +45,13 @@ export class RegisterComponent implements OnInit {
       .subscribe( json => {
         this.laoding = false;
         this.message = "";
-        
-        console.info( json );
+        this._authS.logueado = true;
+        this._router.navigate(['dashboard']);
+
       }, err => {
         this.laoding = false;
         const errorMessage = err.json();
-        console.log( errorMessage.message );
-
         this.message = errorMessage.message;
-        
       })
 
   }
