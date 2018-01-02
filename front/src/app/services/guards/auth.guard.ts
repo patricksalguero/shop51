@@ -11,7 +11,9 @@ export class AuthGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    
+
+      if( this._authS.logueado ) return false;
+
       if( state.url.startsWith("/register") ){
         this._authS.blogin = false;
       }else if( state.url.startsWith("/login") ){

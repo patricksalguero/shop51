@@ -25,7 +25,7 @@ export class RegisterComponent implements OnInit {
   public message : string = "";
 
 
-  constructor( 
+  constructor(
     private _authS : AuthService ,
     private _router: Router ) {
   }
@@ -46,6 +46,7 @@ export class RegisterComponent implements OnInit {
         this.laoding = false;
         this.message = "";
         this._authS.logueado = true;
+        this._router.navigated = false;
         this._router.navigate(['dashboard']);
 
       }, err => {

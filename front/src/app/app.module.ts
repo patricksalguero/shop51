@@ -36,8 +36,6 @@ import { APP_ROUTING } from './app.routing';
 
 //Dependencias externas
 import { DataTableModule } from "angular2-datatable";
-import { ToastModule } from 'ng2-toastr/ng2-toastr';
-
 
 
 @NgModule({

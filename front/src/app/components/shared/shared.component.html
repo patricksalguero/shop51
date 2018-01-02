@@ -1,4 +1,4 @@
-<div class="page animated fadeIn" *ngIf="_authS.logueado" >
+<div class="page animated fadeIn" *ngIf="!logueado" >
   <app-header></app-header>
   <div class="page-content d-flex align-items-stretch">
     <!-- Side Navbar -->
@@ -12,12 +12,4 @@
       <app-footer></app-footer>
     </div>
   </div>
-</div>
-
-<div *ngIf="!_authS.logueado && _authS.blogin " id="login">
-  <app-login></app-login>
-</div>
-
-<div *ngIf="!_authS.logueado && !_authS.blogin" id="register">
-  <app-register></app-register>
 </div>
