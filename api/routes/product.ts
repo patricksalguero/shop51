@@ -3,15 +3,15 @@ import { addProduct ,
     listProducts,
     deleteProduct,
     updateProduct } from '../api/controllers/ProductController';
-import { politica } from '../api/politcs/AuthPolitic';
+import { middlewareAuth } from '../api/politcs/AuthPolitic';
 import { manejadorErrores } from '../errors/HandleError';
 
 
 const router = express.Router();
 
-router.get("/", manejadorErrores.cacheo(listProducts));
-router.post("/add", manejadorErrores.cacheo(addProduct));
-router.put("/update", manejadorErrores.cacheo(updateProduct));
-router.delete("/delete", manejadorErrores.cacheo(deleteProduct));
+router.get("/", middlewareAuth,manejadorErrores.cacheo(listProducts));
+router.post("/add", middlewareAuth,manejadorErrores.cacheo(addProduct));
+router.put("/update",middlewareAuth, manejadorErrores.cacheo(updateProduct));
+router.delete("/delete", middlewareAuth, manejadorErrores.cacheo(deleteProduct));
 
 export { router }

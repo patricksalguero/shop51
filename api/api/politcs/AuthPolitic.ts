@@ -1,30 +1,26 @@
-import { decodificarToken } from '../services/jwt'
+import { decodeToken } from '../services/jwt'
 import { Request, Response, NextFunction } from "express"
 
-const politica = (req: Request, res: Response, next: NextFunction) => {
+const middlewareAuth = (req: Request, res: Response, next: NextFunction) => {
 	
 	if (req.headers["authorization"]) {
-		const cabecera = req.headers["authorization"].toString()
-		const accessToken = cabecera.split(" ")[1]
+		const headers = req.headers["authorization"].toString()
+		const accessToken = headers.split(" ")[1]
 
-		decodificarToken(accessToken)
-			.then(respuesta => {
+		decodeToken(accessToken)
+			.then(result => {
 				return next()
 			})
 			.catch(error => {
-				res
-					.status(error.status)
-					.json(error)
+				res.status(error.status).json(error)
 			})
 
 	} else {
-		return res
-			.status(500)
-			.json({
+		return res.status(500).json({
 				status: 500,
-				message: "No está logueado"
+				message: "Acceso inválido, debe estar logueado"
 			})
 	}
 }
 
-export { politica }
+export { middlewareAuth }

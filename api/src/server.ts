@@ -4,11 +4,11 @@ import {Application, Request, Response, NextFunction } from "express";
 
 import {router as rutasPorDefecto} from '../routes/index';
 import {router as rutasServidores} from '../routes/servers';
-import {router as rutasUsuarios} from '../routes/users';
 
 import { router  as routesClients } from "../routes/clients";
 import { router as routesProviders } from '../routes/providers';
-import { router as routerProducts } from '../routes/product';
+import { router as routesProducts } from '../routes/product';
+import {router as routesUser} from '../routes/users';
 
 
 import {conexionMongo} from "../configuration/connection";
@@ -24,7 +24,7 @@ require("dotenv").config({path: "./variables.env"});
 
 // Configuraciones
 const app: Application = express();
-app.set("puerto", process.env.PORT || 4000);
+app.set("port", process.env.PORT || 4000);
 app.set("view engine", "pug");
 app.set("views", "./views");
 
@@ -51,17 +51,18 @@ app.use((req: Request, res: Response, next: NextFunction) => {
 
 app.use("/", rutasPorDefecto);
 app.use("/servidores", rutasServidores);
-app.use("/usuarios", rutasUsuarios);
+
 
 app.use("/clients" , routesClients );
 app.use("/providers", routesProviders);
-app.use("/products", routerProducts);
+app.use("/products", routesProducts);
+app.use("/users", routesUser);
 
 
 app.use(manejadorErrores.noEncontrado);
 app.use(manejadorErrores.errorGeneral);
 
 // Servidor
-app.listen(app.get("puerto"), ()=> {
-	console.log(`Ejecutando en el puerto ${app.get("puerto")}`);
+app.listen( app.get("port"), ()=> {
+	console.log(`PORT LISTEN:  ${app.get("port")}`);
 })

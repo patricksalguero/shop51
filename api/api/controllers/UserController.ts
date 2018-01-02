@@ -1,51 +1,75 @@
 import {Request, Response, NextFunction} from "express"
-import Usuario from '../models/UserModel'
-import {crearToken, generarTokenNuevo} from '../services/jwt'
+import User from '../models/UserModel'
+import { createToken, generateNewToken} from '../services/jwt'
+import bcrypt = require('bcrypt-nodejs') 
 
-const controlador = {
-	registro: async (req: Request, res: Response, next: NextFunction) => {
-		const correo = req.body.correo
-		const contrasena = req.body.contrasena
+const userController = {
+	register: async (req: Request, res: Response, next: NextFunction) => {
+		
+		const body = req.body;
+		
+		if( body.name == null || body.lastname == null || 
+			body.password == null || body.email == null ){
+			return res.status(400).send({message:'Debe ingresar todos los campos obligatorios'});
+		}
 
-		const usuario = new Usuario()
-		usuario["correo"] = correo
-		usuario["contrasena"] = contrasena
+		try{
+			const user = new User();
+			user["email"] = body.email;
+			user["password"] = body.password;
+			user["name"] = body.name;
+			user["lastname"] = body.lastname;
+			user["role"] = "USER";
+			
+			const pass = "";
 
-		const resultado = await usuario.save()
-		const id = resultado._id
+			await bcrypt.hash( body.password , null , null , (erro , hash) => {
+				
+			});
+			
+			//const userSave = await user.save()
+			//const id = userSave._id
+			//const tokens = createToken(id)
+	
+			return res
+					.status(201)
+					.json( pass )
 
-		const tokens = crearToken(id)
+		}catch( err ){
 
-		return res
-				.status(201)
-				.json(tokens)
+			return res
+				.status(500)
+				.json({ message: 'Ha sucedido un error al Guardar Usuario . ' , err })
+
+		}
+		
 	},
 
 	login: async (req: Request, res: Response, next: NextFunction) => {
 		const correo = req.body.correo
 		const contrasena = req.body.contrasena
 
-		const resultado = await Usuario.find({correo, contrasena})
+		const resultado = await User.find({correo, contrasena})
 		const id = resultado[0]._id
 
-		const tokens = crearToken(id)
+		const tokens = createToken(id)
 
 		return res
 				.status(201)
 				.json(tokens)
 	},
 
-	generarNuevoToken: (req: Request, res: Response, next: NextFunction) => {
+	generateNewTokenUser: (req: Request, res: Response, next: NextFunction) => {
 		const refreshToken = req.body.refreshToken
-		const nuevoToken = generarTokenNuevo(refreshToken)
+		const nuevoToken = generateNewToken(refreshToken)
 
 		res
 			.status(nuevoToken.status)
 			.json(nuevoToken)
 	},
 
-	listado: async (req: Request, res: Response, next: NextFunction) => {
-		const usuarios = await Usuario.find({})
+	listAll: async (req: Request, res: Response, next: NextFunction) => {
+		const usuarios = await User.find({})
 
 		res
 			.status(200)
@@ -55,4 +79,4 @@ const controlador = {
 
 }
 
-export {controlador}
+export { userController }

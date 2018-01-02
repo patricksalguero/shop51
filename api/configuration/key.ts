@@ -1,3 +1,3 @@
-const miClave = "ytytakdk4848dkdkauoj@ci2626262SDDSSAFFGGG"
+const key_secret  = "UGF0cmljayBTYWxndWVybyBBdmFsb3M="
 
-export {miClave}
+export { key_secret }

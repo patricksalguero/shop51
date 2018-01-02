@@ -1,10 +1,17 @@
 import mongoose = require("mongoose")
+import moment  = require('moment')
+
 
 const esquema = new mongoose.Schema({
-	correo: String,
-	contrasena: String
+	email: String,
+	name : String,
+	lastname: String,
+	password: String,
+	role : String,
+	isActive : { type: String , default: 1 },
+	created : { type: Date , default: moment() }
 })
 
-const Usuario = mongoose.model("Usuario", esquema)
+const User = mongoose.model("User", esquema)
 
-export default Usuario
+export default User

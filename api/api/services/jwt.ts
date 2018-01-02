@@ -1,19 +1,19 @@
 import jwt = require("jwt-simple")
 import moment = require("moment")
 import randToken = require("rand-token")
-import { miClave } from '../../configuration/key'
+import { key_secret } from '../../configuration/key'
 
 const refreshTokens = {}
 const tiempoVidaToken = 120
 
-const crearToken = (id) => {
+const createToken = (id) => {
 	const payload = {
 		id: id,
 		iat: moment().unix(),
 		exp: moment().add(tiempoVidaToken, "seconds").unix()
 	}
 
-	const accessToken = jwt.encode(payload, miClave)
+	const accessToken = jwt.encode(payload, key_secret)
 	const refreshToken = randToken.uid(256)
 
 	refreshTokens[refreshToken] = id
@@ -21,10 +21,10 @@ const crearToken = (id) => {
 	return {accessToken, refreshToken}
 }
 
-const decodificarToken = (token) => {
+const decodeToken = (token) => {
 	const promesa = new Promise((resolve, reject) => {
 		try {
-			const payload = jwt.decode(token, miClave)
+			const payload = jwt.decode(token, key_secret)
 			resolve(payload.id)
 		} catch (error) {
 			if(error.message.toLowerCase()=== "token expired") {
@@ -45,7 +45,7 @@ const decodificarToken = (token) => {
 }
 
 
-const generarTokenNuevo = (refreshToken) => {
+const generateNewToken = (refreshToken) => {
 	if(refreshTokens[refreshToken]) {
 		const payload = {
 			id: refreshTokens[refreshToken],
@@ -53,7 +53,7 @@ const generarTokenNuevo = (refreshToken) => {
 			exp: moment().add(tiempoVidaToken, "seconds").unix()
 		}
 	
-		const accessToken = jwt.encode(payload, miClave)
+		const accessToken = jwt.encode(payload, key_secret)
 		
 		return {status: 201, accessToken}
 	}
@@ -63,4 +63,4 @@ const generarTokenNuevo = (refreshToken) => {
 
 
 
-export { crearToken, decodificarToken, generarTokenNuevo }
+export { createToken, decodeToken, generateNewToken }
