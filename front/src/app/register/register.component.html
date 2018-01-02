@@ -19,29 +19,67 @@
             <div class="content">
               <h2 class="text-primary">Regístrate</h2>
               <br>
-              <form id="register-form">
+              <form name="frmRegister" id="register-form" #form="ngForm" (ngSubmit)="registerUser()" >
                 <div class="form-group">
-                  <input id="register-name" type="text" name="registerName" required class="input-material">
+                  <input 
+                   id="register-name" 
+                   type="text" 
+                   required 
+                   name="name" 
+                   autocomplete="off"
+                   [(ngModel)]="user.name"
+                   class="input-material">
                   <label for="register-name" class="label-material">Nombres</label>
                 </div>
                 <div class="form-group">
-                  <input id="register-lastname" type="text" name="registerLastname" required class="input-material">
+                  <input 
+                    id="register-lastname" 
+                    type="text" 
+                    name="lastname"
+                    autocomplete="off"
+                    [(ngModel)]="user.lastname"
+                    required 
+                    class="input-material">
                   <label for="register-lastname" class="label-material">Apellidos</label>
                 </div>
 
                 <div class="form-group">
-                  <input id="register-email" type="email" name="registerEmail" required class="input-material">
+                  <input 
+                    id="register-email" 
+                    type="email" 
+                    name="email"
+                    autocomplete="off"
+                    [(ngModel)]="user.email"
+                    required 
+                    class="input-material">
                   <label for="register-email" class="label-material">Correo Electrónico </label>
                 </div>
                 <div class="form-group">
-                  <input id="register-passowrd" type="password" name="registerPassword" required class="input-material">
+                  <input 
+                    id="register-passowrd" 
+                    type="password" 
+                    name="password"
+                    autocomplete="off"
+                    [(ngModel)]="user.password" 
+                    required 
+                    class="input-material">
                   <label for="register-passowrd" class="label-material">Contraseña </label>
                 </div>
                 <div class="form-group terms-conditions">
-                  <input id="license" type="checkbox" class="checkbox-template">
+                  <input 
+                    id="license" 
+                    type="checkbox" 
+                    name="accept"
+                    [(ngModel)]="accept"
+                    class="checkbox-template">
                   <label for="license">Acepto termino y condiciones.</label>
                 </div>
-                <input id="register" type="submit" value="Registrarse" class="btn btn-primary">
+                <input 
+                    id="register" 
+                    type="submit" 
+                    value="Registrarse" 
+                    [disabled]="form.invalid && accept"
+                    class="btn btn-primary">
               </form>
               <small>¿ Ya eres miembro ? </small>
               <a routerLink="/login" class="signup">Acceder</a>
@@ -51,6 +89,7 @@
       </div>
     </div>
   </div>
+
   <div class="copyrights text-center">
     <p>Desarrollador por
       <i class="fa fa-github"></i>

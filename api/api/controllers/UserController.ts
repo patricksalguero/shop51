@@ -94,8 +94,6 @@ const userController = {
 			.status(200)
 			.json(usuarios)
 	}
-
-
 }
 
 export { userController }
