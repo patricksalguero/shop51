@@ -24,8 +24,8 @@ const manejadorErrores = {
 	},
 
 	errorGeneral: (error: RespuestaError, req: Request, res: Response, next: NextFunction) => {
-		let resaltado = error.stack.replace(/[a-z_-\d]+.js:\d+:\d+/gi, '<mark>$&</mark>')
-		resaltado = resaltado.replace(/[a-z_-\d]+.ts:\d+:\d+/gi, '<mark>$&</mark>') 
+		// let resaltado = error.stack.replace(/[a-z_-\d]+.js:\d+:\d+/gi, '<mark>$&</mark>')
+		// resaltado = resaltado.replace(/[a-z_-\d]+.ts:\d+:\d+/gi, '<mark>$&</mark>') 
 		res.status(error.status)
 			.send({
 				message: error.message,

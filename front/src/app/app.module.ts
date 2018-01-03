@@ -36,7 +36,7 @@ import { APP_ROUTING } from './app.routing';
 
 //Dependencias externas
 import { DataTableModule } from "angular2-datatable";
-
+import { ToastyModule } from 'ng2-toasty';
 
 @NgModule({
   declarations: [
@@ -59,7 +59,8 @@ import { DataTableModule } from "angular2-datatable";
     APP_ROUTING,
     HttpModule,
     FormsModule,
-    DataTableModule
+    DataTableModule,
+    ToastyModule.forRoot()
   ],
   providers: [
     { provide: LOCALE_ID , useValue: 'es' },

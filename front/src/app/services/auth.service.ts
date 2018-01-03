@@ -11,18 +11,19 @@ export class AuthService {
   logueado : boolean = false;
   blogin   : boolean = true;
 
+  private headers = new Headers({ "Content-Type": "application/json" });
   constructor( private _http: Http , private _router : Router ) { }
 
   public reigsterUser( user ){
-    const headers = new Headers({ "Content-Type": "application/json" });
     const url = varsApp.endpointDev + "users/register";
-    console.info( url );
-    return this._http.post( url , user , { headers  }  )
+    return this._http.post( url , user , { headers : this.headers  }  )
             .map ( result => result.json() );
   }
 
-  public login(){
-
+  public login( email, password ){
+    const url = varsApp.endpointDev + "users/login";
+    return this._http.post( url ,  { email , password } , { headers : this.headers } )
+            .map( result => result.json() )
   }
 
   public logout(){

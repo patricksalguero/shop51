@@ -19,16 +19,40 @@
             <div class="content">
               <h2 class="text-primary">Login</h2>
               <br>
-              <form id="login-form" method="post">
+              <style>
+                .nonebg , .nonebg:disabled{
+                  background: none;
+                }
+              </style>
+              <form id="login-form" method="post" #form="ngForm" (ngSubmit)="login()">
                 <div class="form-group">
-                  <input id="login-username" type="text" name="loginUsername" required="" class="input-material">
+                  <input
+                  id="login-username"
+                  [disabled]="loading"
+                  type="email"
+                  name="loginUsername"
+                  autocomplete="off"
+                  [(ngModel)]="user.email"
+                  required
+                  class="input-material nonebg">
                   <label for="login-username" class="label-material">Correo Electrónico</label>
                 </div>
                 <div class="form-group">
-                  <input id="login-password" type="password" name="loginPassword" required="" class="input-material">
+                  <input
+                  id="login-password"
+                  [disabled]="loading"
+                  type="password"
+                  name="loginPassword"
+                  [(ngModel)]="user.password"
+                  required
+                  class="input-material nonebg">
                   <label for="login-password" class="label-material">Contraseña</label>
                 </div>
-                <a id="login" href="index.html" class="btn btn-primary">Acceder</a>
+
+                <button type="submit" class="btn btn-primary" [disabled]="form.invalid || loading">
+                  Acceder <i *ngIf="loading" class="fa fa-spinner fa-spin" aria-hidden="true"></i>
+                </button>
+
                 <!-- This should be submit button but I replaced it with <a> for demo purposes-->
               </form>
               <a href="#" class="forgot-pass">¿Olvidaste tu contraseña?</a>

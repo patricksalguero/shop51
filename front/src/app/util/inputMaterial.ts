@@ -17,4 +17,24 @@ export class InputMaterial{
     });
   }
 
+  public static initValidateLoginRegister(){
+    $('#login-form').validate({
+      messages: {
+          loginUsername: 'Por favor ingrese un correo valido.',
+          loginPassword: 'Por favor ingrese su clave.'
+        }
+    });
+
+    // ------------------------------------------------------- //
+    // Register form validation
+    // ------------------------------------------------------ //
+    $('#register-form').validate({
+        messages: {
+            registerUsername: 'Por favor ingrese su nombre.',
+            registerEmail: 'Por favor ingrese un correo valido.',
+            registerPassword: 'Por favor ingrese su contraseña.'
+        }
+    });
+  }
+
 }

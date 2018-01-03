@@ -38,8 +38,8 @@ $(document).ready(function () {
     // ------------------------------------------------------ //
     $('#login-form').validate({
         messages: {
-            loginUsername: 'please enter your username',
-            loginPassword: 'please enter your password'
+            loginUsername: 'Por favor ingrese su correo.',
+            loginPassword: 'Por favor ingrese su clave.'
         }
     });
 
@@ -48,9 +48,9 @@ $(document).ready(function () {
     // ------------------------------------------------------ //
     $('#register-form').validate({
         messages: {
-            registerUsername: 'please enter your first name',
-            registerEmail: 'please enter a vaild Email Address',
-            registerPassword: 'please enter your password'
+            registerUsername: 'Por favor ingrese su nombre.',
+            registerEmail: 'Por favor ingrese un correo valido.',
+            registerPassword: 'Por favor ingrese su contraseña.'
         }
     });
 
@@ -98,8 +98,8 @@ $(document).ready(function () {
     });
 
     // ------------------------------------------------------- //
-    // Footer 
-    // ------------------------------------------------------ //   
+    // Footer
+    // ------------------------------------------------------ //
 
     var contentInner = $('.content-inner');
 

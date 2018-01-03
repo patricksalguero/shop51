@@ -65,17 +65,30 @@ const userController = {
 	},
 
 	login: async (req: Request, res: Response, next: NextFunction) => {
-		const email  = req.body.email
-		const password = req.body.password
+		const email  = req.body.email;
+		const password = req.body.password;
 
-		const resultado = await User.find({ email , password })
-		const id = resultado[0]._id
+		try{
+			const userFind = await User.findOne({ email })
 
-		const tokens = createToken(id)
+			if( userFind != null  ){
 
-		return res
-				.status(201)
-				.json(tokens)
+				if( bcrypt.compareSync( userFind['password'] , password ) ){
+					const id = userFind._id
+					const tokens = createToken(id)
+					return res.status(201).json(tokens)
+				}else{
+					return res.status(400).json({ message: 'Email/Password incorrectos.'})
+				}
+				
+			}else{
+				return res.status(404).json({ message: 'Email/Password incorrectos.'})
+			}
+			
+
+		}catch( errLogin ){
+			return res.status(500).json({ message: 'Email/Password incorrectos.'})
+		}
 	},
 
 	generateNewTokenUser: (req: Request, res: Response, next: NextFunction) => {
