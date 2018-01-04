@@ -37,7 +37,11 @@ const userController = {
 			user["lastname"] = body.lastname;
 			user["role"] = "USER";
 			
-			const passcrypt = bcrypt.hashSync(body.password, null , null );
+			const passcrypt = bcrypt.hashSync( body.password );
+			console.log( passcrypt );
+
+			console.log( bcrypt.compareSync( body.password, passcrypt ) );
+
 			user["password"] = passcrypt;
 			
 			const userSave = await user.save()
@@ -67,16 +71,23 @@ const userController = {
 	login: async (req: Request, res: Response, next: NextFunction) => {
 		const email  = req.body.email;
 		const password = req.body.password;
+	
 
 		try{
 			const userFind = await User.findOne({ email })
-
+			
 			if( userFind != null  ){
-
-				if( bcrypt.compareSync( userFind['password'] , password ) ){
+				const result = bcrypt.compareSync( password , userFind['password'] )
+				
+				console.log ( result );
+				userFind['password'] = undefined;
+				userFind['isActive'] = undefined;
+				userFind['role'] = undefined;
+				userFind['created'] = undefined;
+				if( result ){
 					const id = userFind._id
 					const tokens = createToken(id)
-					return res.status(201).json(tokens)
+					return res.status(201).json( { tokens , user : userFind}  )
 				}else{
 					return res.status(400).json({ message: 'Email/Password incorrectos.'})
 				}
@@ -87,7 +98,8 @@ const userController = {
 			
 
 		}catch( errLogin ){
-			return res.status(500).json({ message: 'Email/Password incorrectos.'})
+			console.log( errLogin );
+			return res.status(500).json({ message: 'Email/Password incorrectos.' , err : errLogin})
 		}
 	},
 

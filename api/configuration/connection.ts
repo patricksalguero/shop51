@@ -1,6 +1,7 @@
-const usuario: string = "protein_user"
-const contrasena: string = "protein"
+const usuario: string = "dbuser"
+const contrasena: string = "dbuser"
+const conMLab : string = "ds237967.mlab.com:37967/dbprotein"
 
-const conexionMongo: string = `mongodb://${usuario}:${contrasena}@ds163826.mlab.com:63826/proteinstoredb`
+const conexionMongo: string = `mongodb://${usuario}:${contrasena}@${conMLab}`
 
 export {conexionMongo}
