@@ -26,8 +26,51 @@ export class AuthService {
             .map( result => result.json() )
   }
 
-  public logout(){
+  public saveLocal( name , value  ){
+    const promise = new Promise( (resolve , reject) => {
+      if ( localStorage ){
+        localStorage.setItem( name.toLowerCase() , value );
+        resolve();
+        return;
+      }
+    })
+    return promise;
+  }
 
+  public getLocal( name ){
+    const promise = new Promise( (resolve , reject) => {
+      if ( localStorage ){
+        localStorage.getItem( name.toLowerCase() );
+        resolve();
+        return;
+      }
+    })
+    return promise;
+  }
+
+  public removeLocal( name ){
+    const promise = new Promise( (resolve , reject) => {
+      if ( localStorage ){
+        localStorage.removeItem( name.toLowerCase() );
+        resolve();
+        return;
+      }
+    })
+    return promise;
+  }
+
+  public logout(){
+    const promise = new Promise( (resolve , reject) => {
+
+      this.removeLocal('shopusertoken').then( () => {
+        this.removeLocal('shopuser').then( () => {
+          this.logueado = false;
+          this.blogin = true;
+        })
+      })
+
+    })
+    return promise;
   }
 
 }

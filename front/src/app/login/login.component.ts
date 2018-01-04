@@ -42,17 +42,28 @@ export class LoginComponent implements OnInit {
     this._authS.login(  this.user.email , this.user.password )
         .subscribe( json => {
           this.loading = false;
-          $.toast({
-            heading: '<h2>Bienvenido</h2>',
-            text: '<p>Shop51 : Sistema de ventas de Proteinas y Suplementos alimenticios!!</p>',
-            showHideTransition: 'fade',
-            icon: 'success',
-            position : 'top-right'
-          })
+          const name = json.user.name;
 
-          console.log( json );
+          this._authS
+            .saveLocal('shopusertoken' , JSON.stringify(json['tokens']))
+            .then( () => {
+              this._authS.saveLocal('shopuser', JSON.stringify(json['user']))
+                .then( () => {
+                  $.toast({
+                    heading: '<h2>Bienvenido</h2>',
+                    text: `<p> <strong>Shop51 :</strong> Hola, ${ name } !! <br> Comercio de Proteínas y Suplementos alimenticios. </p>`,
+                    showHideTransition: 'fade',
+                    icon: 'success',
+                    position : 'top-right'
+                  });
+                  this._authS.logueado = true;
+                  this._router.navigate(['dashboard']);
+                })
+            })
+
         }, error => {
           this.loading = false;
+          this._authS.logueado = false;
           const err = error.json();
           $.toast({
             heading: '<h2>Error</h2>',

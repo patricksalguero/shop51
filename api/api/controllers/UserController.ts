@@ -56,7 +56,7 @@ const userController = {
 
 			return res
 					.status(201)
-					.json( { user : userSave , tokens  }  )
+					.json( { user : userSave , tokens : tokens  }  )
 
 		}catch( err ){
 

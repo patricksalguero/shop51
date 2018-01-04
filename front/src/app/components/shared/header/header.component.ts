@@ -17,8 +17,9 @@ export class HeaderComponent implements OnInit {
   }
 
   public logout(){
-    this._authS.logueado = false;
-    this._authS.blogin = true;
-    this._router.navigate(["login"]);
+    this._authS.logout()
+      .then(() => {
+        this._router.navigate(["login"]);
+      })
   }
 }
