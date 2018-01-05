@@ -40,8 +40,7 @@ export class AuthService {
   public getLocal( name ){
     const promise = new Promise( (resolve , reject) => {
       if ( localStorage ){
-        localStorage.getItem( name.toLowerCase() );
-        resolve();
+        resolve( JSON.parse ( localStorage.getItem( name.toLowerCase() ) ) );
         return;
       }
     })

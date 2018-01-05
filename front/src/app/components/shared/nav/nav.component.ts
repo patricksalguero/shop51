@@ -1,4 +1,6 @@
+import { AuthService } from './../../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-nav',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavComponent implements OnInit {
 
-  constructor() { }
+  public userLogin : any = null;
+
+  constructor(
+    private _authS : AuthService
+  ) { }
 
   ngOnInit() {
+    this._authS.getLocal('shopuser').then( ( userJson ) => {
+      this.userLogin = userJson;
+    })
   }
 
 }

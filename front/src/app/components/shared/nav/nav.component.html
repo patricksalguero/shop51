@@ -3,9 +3,9 @@
   <div class="avatar">
     <img src="assets/img/fotoPersonal.jpg" alt="..." class="img-fluid rounded-circle">
   </div>
-  <div class="title">
-    <h1 class="h4">Patrick Salguero</h1>
-    <p>Analista Programador</p>
+  <div class="title animated fadeIn" *ngIf="userLogin">
+    <h1 class="h4">{{ userLogin.name }} {{ userLogin.lastname }}</h1>
+    <p>Administrador</p>
   </div>
 </div>
 

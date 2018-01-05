@@ -1,3 +1,4 @@
+import { InputMaterial } from './../../../util/inputMaterial';
 import { AuthService } from './../../../services/auth.service';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
@@ -14,6 +15,8 @@ export class HeaderComponent implements OnInit {
   private _authS : AuthService  ) { }
 
   ngOnInit() {
+    InputMaterial.initSearchBox();
+    InputMaterial.initNavegation();
   }
 
   public logout(){
