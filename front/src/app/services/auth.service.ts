@@ -26,6 +26,12 @@ export class AuthService {
             .map( result => result.json() )
   }
 
+  public newtoken( refreshToken ){
+    const url = varsApp.endpointDev + "users/newtoken";
+    return this._http.post( url, refreshToken , { headers: this.headers } )
+            .map( result => result.json() );
+  }
+
   public saveLocal( name , value  ){
     const promise = new Promise( (resolve , reject) => {
       if ( localStorage ){

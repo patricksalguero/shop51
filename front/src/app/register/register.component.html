@@ -1,4 +1,4 @@
-<div class="page login-page animated fadeIn">
+<div class="page login-page animated bounceInLeft">
   <div class="container d-flex align-items-center">
     <div class="form-holder has-shadow">
       <div class="row">
@@ -21,64 +21,64 @@
               <br>
               <form name="frmRegister" id="register-form" #form="ngForm" (ngSubmit)="registerUser()" >
                 <div class="form-group">
-                  <input 
-                   id="register-name" 
-                   type="text" 
-                   required 
-                   name="name" 
+                  <input
+                   id="register-name"
+                   type="text"
+                   required
+                   name="name"
                    autocomplete="off"
                    [(ngModel)]="user.name"
                    class="input-material">
                   <label for="register-name" class="label-material">Nombres</label>
                 </div>
                 <div class="form-group">
-                  <input 
-                    id="register-lastname" 
-                    type="text" 
+                  <input
+                    id="register-lastname"
+                    type="text"
                     name="lastname"
                     autocomplete="off"
                     [(ngModel)]="user.lastname"
-                    required 
+                    required
                     class="input-material">
                   <label for="register-lastname" class="label-material">Apellidos</label>
                 </div>
 
                 <div class="form-group">
-                  <input 
-                    id="register-email" 
-                    type="email" 
+                  <input
+                    id="register-email"
+                    type="email"
                     name="email"
                     autocomplete="off"
                     [(ngModel)]="user.email"
-                    required 
+                    required
                     class="input-material">
                   <label for="register-email" class="label-material">Correo Electrónico </label>
                 </div>
                 <div class="form-group">
-                  <input 
-                    id="register-passowrd" 
-                    type="password" 
+                  <input
+                    id="register-passowrd"
+                    type="password"
                     name="password"
                     autocomplete="off"
-                    [(ngModel)]="user.password" 
-                    required 
+                    [(ngModel)]="user.password"
+                    required
                     class="input-material">
                   <label for="register-passowrd" class="label-material">Contraseña </label>
                 </div>
                 <div class="form-group terms-conditions">
-                  <input 
-                    id="license" 
+                  <input
+                    id="license"
                     required
-                    type="checkbox" 
+                    type="checkbox"
                     name="accept"
                     [(ngModel)]="accept"
                     class="checkbox-template">
                   <label for="license">Acepto termino y condiciones.</label>
                 </div>
-                <input 
-                    id="register" 
-                    type="submit" 
-                    value="Registrarse" 
+                <input
+                    id="register"
+                    type="submit"
+                    value="Registrarse"
                     [disabled]="form.invalid && !accept"
                     class="btn btn-primary">
               </form>
