@@ -1,3 +1,4 @@
+import {AuthenticationGuard} from './services/guards/authentication.guard';
 import { RouterModule, Routes } from '@angular/router';
 import {
   ProductsComponent,
@@ -15,12 +16,13 @@ const APP_ROUTES: Routes = [
   //Publicos
   { path: 'login' ,        component: LoginComponent , canActivate: [AuthGuard] },
   { path: 'register' ,        component: RegisterComponent  , canActivate : [AuthGuard]},
-  
+
   //Privados - Guards de Autentificación
-  { path: 'dashboard',     component: DashboardComponent },
-  { path: 'products',      component: ProductsComponent },
-  { path: 'providers',     component: ProvidersComponent },
+  { path: 'dashboard',     component: DashboardComponent, canActivate: [AuthenticationGuard] },
+  { path: 'products',      component: ProductsComponent , canActivate: [AuthenticationGuard]},
+  { path: 'providers',     component: ProvidersComponent ,  canActivate: [AuthenticationGuard]},
   { path: 'clients',
+    canActivate: [AuthenticationGuard],
     children : CLIENT_ROUTING },
   { path: '**', pathMatch: 'full', redirectTo: 'login' }
 ];

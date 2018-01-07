@@ -30,7 +30,7 @@ import { RegisterComponent } from './register/register.component';
 import { TestdataService } from './services/testdata.service';
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './services/guards/auth.guard';
-
+import { AuthenticationGuard } from './services/guards/authentication.guard';
 
 //Rutas
 import { APP_ROUTING } from './app.routing';
@@ -68,7 +68,8 @@ import { ToastyModule } from 'ng2-toasty';
     { provide: LOCALE_ID , useValue: 'es' },
     TestdataService,
     AuthService,
-    AuthGuard
+    AuthGuard,
+    AuthenticationGuard
   ],
   bootstrap: [AppComponent]
 })
