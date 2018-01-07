@@ -1,5 +1,6 @@
 import { TestdataService } from './../../services/testdata.service';
 import { Component, OnInit } from '@angular/core';
+import { ClientService } from '../../services/client.service';
 
 
 @Component({
@@ -17,11 +18,15 @@ export class ClientsComponent implements OnInit {
   public sortBy = "email";
   public sortOrder = "asc";
 
-  constructor( public _testService : TestdataService ) { }
+  constructor(
+    public _testService : TestdataService,
+    public _clientS : ClientService ) { }
 
   ngOnInit() {
-    this._testService.getData();
     document.querySelector('ul').classList.add('floatLeft')
+    this._clientS.getListAll().subscribe( data => {
+      console.log( data );
+    })
   }
 
 

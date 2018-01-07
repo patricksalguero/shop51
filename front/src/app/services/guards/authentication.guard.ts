@@ -13,15 +13,12 @@ export class AuthenticationGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
 
-      console.log( 'Desde el guard ');
-      console.log( state );
       if( !this._authS.logueado ){
-        console.log('No esta logueado...');
          this._authS.logout().then(()=>{
-           console.log('Cerrando...');
+           console.info('Se ha cerrado sesión.');
+           this._router.navigate(['login']);
+           return false;
          })
-
-         return false;
       }
 
     return true;

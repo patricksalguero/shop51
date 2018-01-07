@@ -1,9 +1,11 @@
 import { Http , Headers , Request , Response } from '@angular/http';
+
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map'
 import { Router } from '@angular/router';
 
 import { varsApp } from '../configuration/constants';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class AuthService {
@@ -12,7 +14,7 @@ export class AuthService {
   blogin   : boolean = true;
 
   private headers = new Headers({ "Content-Type": "application/json" });
-  constructor( private _http: Http , private _router : Router ) { }
+  constructor( private _http: Http , private _router : Router , private _httpC : HttpClient ) { }
 
   public reigsterUser( user ){
     const url = varsApp.endpointDev + "users/register";
@@ -28,8 +30,9 @@ export class AuthService {
 
   public newtoken( refreshToken ){
     const url = varsApp.endpointDev + "users/newtoken";
-    return this._http.post( url, refreshToken , { headers: this.headers } )
-            .map( result => result.json() );
+    return this._httpC.post<any>( url , {refreshToken} , {
+      observe: "body", responseType: "json"
+    })
   }
 
   public saveLocal( name , value  ){
@@ -37,7 +40,6 @@ export class AuthService {
       if ( localStorage ){
         localStorage.setItem( name.toLowerCase() , value );
         resolve();
-        return;
       }
     })
     return promise;
@@ -46,8 +48,7 @@ export class AuthService {
   public getLocal( name ){
     const promise = new Promise( (resolve , reject) => {
       if ( localStorage ){
-        resolve( JSON.parse ( localStorage.getItem( name.toLowerCase() ) ) );
-        return;
+        resolve( JSON.parse ( localStorage.getItem( name ) ) );
       }
     })
     return promise;
@@ -71,6 +72,7 @@ export class AuthService {
         this.removeLocal('shopuser').then( () => {
           this.logueado = false;
           this.blogin = true;
+          resolve();
         })
       })
 

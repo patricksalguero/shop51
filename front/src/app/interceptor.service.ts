@@ -15,13 +15,11 @@ export class InterceptorService implements HttpInterceptor {
 
   private tokens : any = undefined;
 
-  constructor(private injector: Injector, private _authS : AuthService) {}
+  constructor(private injector: Injector) {}
 
   intercept( req: HttpRequest<any>, next: HttpHandler  ): Observable<HttpEvent<any>> {
-    this._authS.getLocal('shopusertoken').then( ( tokens ) => {
-      this.tokens['accessToken'] = tokens['accessToken'] ;
-      this.tokens['refreshToken'] = tokens['refreshToken'];
-    })
+
+    this.tokens = JSON.parse ( localStorage.getItem('shopusertoken') )
 
     const requestClone = req.clone({
       headers: req.headers.append("Authorization", `Bearer ${ this.tokens['accessToken']}`)
@@ -32,16 +30,15 @@ export class InterceptorService implements HttpInterceptor {
     return next.handle(requestClone)
 		.do(event => {
 			if (event instanceof HttpResponse) {
-				console.log(event)
+				//console.log(event)
 			}
     }, res => {
-      if(res.status == 401) {
-				return auth.newtoken( this.tokens['refreshToken'] ).flatMap((data: any) => {
+      if(res.status == 401 || res.status == 403 ) {
+
+        return auth.newtoken( this.tokens['refreshToken'] ).subscribe((data: any) => {
 
           if( data.accessToken != "" ) {
             this.tokens['accessToken'] = data.accessToken;
-
-            console.log( this.tokens );
 
             localStorage.setItem("shopusertoken", JSON.stringify( this.tokens ) );
 
@@ -51,10 +48,15 @@ export class InterceptorService implements HttpInterceptor {
             return Observable.throw(res)
 					}
 
-          let requestClone = req.clone({headers: req.headers.append("Authorization", `Bearer ${data.accessToken}`)})
+          let requestClone2 = req.clone({
+            headers: req.headers.set("Authorization", `Bearer ${data.accessToken}`)
+          })
 
-					return next.handle(requestClone)
-				})
+          console.log( requestClone2 )
+          return next.handle(requestClone2 ).do( e => {});
+        })
+
+
 			}
     })
 

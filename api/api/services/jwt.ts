@@ -4,7 +4,7 @@ import randToken = require("rand-token")
 import { key_secret } from '../../configuration/key'
 
 const refreshTokens = {}
-const tiempoVidaToken = 120
+const tiempoVidaToken = 5
 
 const createToken = (id) => {
 	const payload = {

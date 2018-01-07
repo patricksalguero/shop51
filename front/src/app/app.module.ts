@@ -1,9 +1,10 @@
 import { HttpModule } from '@angular/http';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule ,HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { LOCALE_ID } from '@angular/core';
+
 
 //Cambiar la Fecha a Español
 import { registerLocaleData } from '@angular/common';
@@ -27,10 +28,14 @@ import { AddComponent } from './components/clients/add.component';
 import { RegisterComponent } from './register/register.component';
 
 //Servicios
+//
+import { InterceptorService } from './interceptor.service';
 import { TestdataService } from './services/testdata.service';
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './services/guards/auth.guard';
 import { AuthenticationGuard } from './services/guards/authentication.guard';
+//
+import { ClientService } from './services/client.service';
 
 //Rutas
 import { APP_ROUTING } from './app.routing';
@@ -66,7 +71,9 @@ import { ToastyModule } from 'ng2-toasty';
   ],
   providers: [
     { provide: LOCALE_ID , useValue: 'es' },
+    {provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi:true},
     TestdataService,
+    ClientService,
     AuthService,
     AuthGuard,
     AuthenticationGuard
