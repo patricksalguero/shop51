@@ -13,6 +13,11 @@ export class AuthenticationGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
 
+      if( this._authS.logueado || localStorage.getItem('shopusertoken') != undefined ) {
+        this._authS.logueado = true;
+        return true;
+      }
+
       if( !this._authS.logueado ){
          this._authS.logout().then(()=>{
            console.info('Se ha cerrado sesión.');

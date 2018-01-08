@@ -34,6 +34,15 @@ export class AddComponent implements OnInit {
         icon: 'success',
         position : 'top-right'
       })
+      this._router.navigate(['clients']);
+    }, err => {
+      $.toast({
+        heading: '<h2>Error</h2>',
+        text: '<p>'+ 'Ha sucedido un error , intentalo nuevamente por favor.' +'</p>',
+        showHideTransition: 'fade',
+        icon: 'error',
+        position : 'top-right'
+      })
     })
   }
 

@@ -26,6 +26,7 @@ import { NofoundComponent } from './nofound/nofound.component';
 import { LoginComponent } from './login/login.component';
 import { AddComponent } from './components/clients/add.component';
 import { RegisterComponent } from './register/register.component';
+import { UpdateComponent } from './components/clients/update.component';
 
 //Servicios
 //
@@ -58,7 +59,8 @@ import { ToastyModule } from 'ng2-toasty';
     LoginComponent,
     TitlepageComponent,
     AddComponent,
-    RegisterComponent
+    RegisterComponent,
+    UpdateComponent
   ],
   imports: [
     BrowserModule,
