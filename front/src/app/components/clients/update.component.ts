@@ -33,9 +33,9 @@ export class UpdateComponent implements OnInit {
     this.loading = true;
     this._routerAct.params.subscribe( params => {
       this.idClient = params['id'];
-      console.log( this.idClient );
+
       this._clientS.getClient( this.idClient ).subscribe( (result : any) => {
-        console.log( result );
+
         this.client = result.client;
         this.loading = false;
       })
@@ -43,7 +43,7 @@ export class UpdateComponent implements OnInit {
   }
 
   updateClient(){
-    console.log( this.client )
+    // console.log( this.client )
     this._clientS.updateClient( this.client )
       .subscribe( result => {
         $.toast({

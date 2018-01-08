@@ -35,7 +35,6 @@ export class ClientsComponent implements OnInit {
   callList(){
     this.loading = true;
     this._clientS.getListAll().subscribe( data => {
-      console.log( data );
       this.data = data;
       this.loading = false;
     }, err => {

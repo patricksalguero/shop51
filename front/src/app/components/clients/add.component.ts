@@ -25,7 +25,7 @@ export class AddComponent implements OnInit {
   }
 
   addClient(){
-    console.info( this.client )
+    // console.info( this.client )
     this._clientS.addClient( this.client  ).subscribe( result => {
       $.toast({
         heading: '<h2>Exitoso</h2>',
