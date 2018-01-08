@@ -34,12 +34,13 @@ const addClient = async ( request : Request , response : Response , next : NextF
 
 const updateClient = async ( request : Request , response : Response , next : NextFunction ) => {
     const body = request.body;
-    
-    if( body.id == null ){
+        
+    if( body._id == null ){
         return response.status(500).send({ message : 'El id del Cliente es obligatorio'});
     }
 
-    const idClient = body.id;
+    const idClient = body._id;
+
 
     try{
         const clientFind = await Client.findById( idClient );
@@ -96,8 +97,17 @@ const deleteClient = async ( request : Request , response : Response , next : Ne
     }
 }
 
+const getClientById = async ( request : Request , response : Response , next : NextFunction ) => {
+    const clientId = request.params.id
+    Client.findById( clientId ,(err, clientR ) => {
+        if( err || !clientId ) return response.status(404).send({message: 'Cliente no encontrado' })
+        return response.status(200).send({message:'Se ha encontrado cliente.', client: clientR})
+    })
+}
+
 
 export {
+    getClientById,
     listClients,
     addClient ,
     updateClient ,

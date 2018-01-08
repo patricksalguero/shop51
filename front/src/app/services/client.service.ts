@@ -32,4 +32,9 @@ export class ClientService {
       .map( result => result.json() );
   }
 
+  public getClient( id : string ){
+    return this._http.get( varsApp.endpointDev + "clients/find/" + id , { headers : this.headers.getHeaders() })
+      .map( result => result.json() );
+  }
+
 }

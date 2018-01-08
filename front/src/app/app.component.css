@@ -1,0 +1,11 @@
+@keyframes latidos {
+  from { transform: none; }
+  50% { transform: scale(1.2); }
+  to { transform: none; }
+}
+/* En la clase corazon vamos a llamar latidos en la animación  */
+.corazon {
+display: inline-block;
+animation: latidos 1s infinite;
+transform-origin: center;
+}

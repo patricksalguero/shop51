@@ -2,6 +2,7 @@ import { TestdataService } from './../../services/testdata.service';
 import { Component, OnInit } from '@angular/core';
 import { ClientService } from '../../services/client.service';
 
+declare var $;
 
 @Component({
   selector: 'app-clients',
@@ -40,6 +41,31 @@ export class ClientsComponent implements OnInit {
       }
       this.loading = false;
     })
+  }
+
+  toggleActive( item , index ){
+    let number = 1;
+    let activMsg = "Activado";
+    if( item['isActive'] === 1 ){
+      number = 2;
+      this.data[index]['isActive'] = number;
+      activMsg = "Desactivado";
+    }else if ( item['isActive'] === 2 ){
+      number = 1;
+      this.data[index]['isActive'] = number;
+      let activMsg = "Activado";
+    }
+
+    this._clientS.updateClient( this.data[index] )
+      .subscribe( result => {
+        $.toast({
+          heading: '<h2>'+ activMsg +'</h2>',
+          text: '<p>'+ 'Cliente ' + this.data[index]['name'] +'</p>',
+          showHideTransition: 'fade',
+          icon: 'success',
+          position : 'top-right'
+        })
+      })
   }
 
 

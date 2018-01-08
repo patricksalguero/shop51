@@ -28,10 +28,10 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     InputMaterial.initMaterial();
     InputMaterial.initValidateLoginRegister();
-    $("#login-username").focus();
-    this.user.email = "patrick.salguero.avalos@gmail.com";
-    $("#login-password").focus();
-    this.user.password = "123456";
+    // $("#login-username").focus();
+    // this.user.email = "patrick.salguero.avalos@gmail.com";
+    // $("#login-password").focus();
+    // this.user.password = "123456";
   }
 
   goToRegister(){
