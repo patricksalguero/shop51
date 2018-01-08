@@ -1,8 +1,11 @@
 import { TestdataService } from './../../services/testdata.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , ViewChild } from '@angular/core';
 import { ClientService } from '../../services/client.service';
+import swal from 'sweetalert2'
+
 
 declare var $;
+
 
 @Component({
   selector: 'app-clients',
@@ -66,6 +69,46 @@ export class ClientsComponent implements OnInit {
           position : 'top-right'
         })
       })
+  }
+
+  showModal( item: any  , index : number ){
+    swal({
+      title: '¿ Seguro de eliminar ?',
+      text: 'Cliente: ' + item['name'],
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Si, eliminar.',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.value) {
+
+        this._clientS.deleteClient( item['_id'] )
+          .subscribe( data => {
+
+            $.toast({
+              heading: '<h2>Eliminado</h2>',
+              text: '<p>'+ 'Se ha eliminado con exito' +'</p>',
+              showHideTransition: 'fade',
+              icon: 'success',
+              position : 'top-right'
+            })
+
+            this.data.splice( index, 1 );
+            swal.close();
+
+          })
+
+
+      // result.dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
+      } else if (result.dismiss === 'cancel') {
+        // swal(
+        //   'Cancelled',
+        //   'Your imaginary file is safe :)',
+        //   'error'
+        // )
+      }
+    })
+
   }
 
 

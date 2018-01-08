@@ -62,7 +62,9 @@ const updateClient = async ( request : Request , response : Response , next : Ne
 }
 
 const deleteClient = async ( request : Request , response : Response , next : NextFunction ) => {
-    const body = request.body;
+    const body = request.params;
+
+    console.log( body );
 
     if( body.id == null ){
         return response.status(500).send({ message: 'El id del Cliente es obligatorio!.'});
