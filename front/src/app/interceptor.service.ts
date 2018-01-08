@@ -48,16 +48,18 @@ export class InterceptorService implements HttpInterceptor {
             return Observable.throw(res)
 					}
 
+
           let requestClone2 = req.clone({
             headers: req.headers.set("Authorization", `Bearer ${data.accessToken}`)
           })
 
-          console.log( requestClone2 )
-          return next.handle(requestClone2 ).do( e => {});
+          return next.handle(requestClone2 )
         })
 
 
-			}
+			}else{
+        console.log('Diferente a 401 - 403')
+      }
     })
 
   }

@@ -71,7 +71,7 @@ import { ToastyModule } from 'ng2-toasty';
   ],
   providers: [
     { provide: LOCALE_ID , useValue: 'es' },
-    {provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi:true},
+    // {provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi:true},
     TestdataService,
     ClientService,
     AuthService,

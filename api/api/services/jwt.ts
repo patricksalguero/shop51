@@ -4,13 +4,13 @@ import randToken = require("rand-token")
 import { key_secret } from '../../configuration/key'
 
 const refreshTokens = {}
-const tiempoVidaToken = 5
+const tiempoVidaToken =  1
 
 const createToken = (id) => {
 	const payload = {
 		id: id,
 		iat: moment().unix(),
-		exp: moment().add(tiempoVidaToken, "seconds").unix()
+		exp: moment().add(tiempoVidaToken, "days").unix()
 	}
 
 	const accessToken = jwt.encode(payload, key_secret)
